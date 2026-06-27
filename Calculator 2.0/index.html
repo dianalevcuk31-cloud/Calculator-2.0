@@ -1,0 +1,151 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Калькулятор процентов</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Вкладки -->
+        <div class="tabs-container" id="tabsContainer">
+            <button class="tab active" data-tab="calculator">
+                <i class="fas fa-calculator"></i>
+                <span>Калькулятор</span>
+            </button>
+            <button class="tab" data-tab="saved">
+                <i class="fas fa-folder"></i>
+                <span>Сохранения</span>
+            </button>
+        </div>
+
+        <!-- Калькулятор -->
+        <div class="tab-content active" id="calculatorTab">
+            <div class="login-box">
+                <h2>
+                    <i class="fas fa-percent"></i>
+                    Калькулятор
+                </h2>
+                
+                <div class="input-group">
+                    <i class="fas fa-hashtag"></i>
+                    <input type="number" id="numberA" step="any" required>
+                    <label>Число А (процент)</label>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-calculator"></i>
+                    <input type="number" id="numberB" step="any" required>
+                    <label>Число Б (база)</label>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-tag"></i>
+                    <input type="text" id="calculationName" placeholder=" " maxlength="30">
+                    <label>Название расчёта</label>
+                </div>
+                
+                <div class="results-section">
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-percent"></i>
+                        </div>
+                        <div class="result-info">
+                            <span class="result-label">Процент А от Б</span>
+                            <span class="result-value" id="percentResult">—</span>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-icon subtract">
+                            <i class="fas fa-minus-circle"></i>
+                        </div>
+                        <div class="result-info">
+                            <span class="result-label">Б минус процент</span>
+                            <span class="result-value" id="subtractResult">—</span>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-icon add">
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <div class="result-info">
+                            <span class="result-label">Б плюс процент</span>
+                            <span class="result-value" id="addResult">—</span>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-icon difference">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="result-info">
+                            <span class="result-label">Разница (±)</span>
+                            <span class="result-value" id="differenceResult">—</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="login-btn" id="calculateBtn">
+                        <i class="fas fa-calculator"></i>
+                        Рассчитать
+                    </button>
+                    <button class="save-btn" id="saveBtn">
+                        <i class="fas fa-save"></i>
+                        Сохранить
+                    </button>
+                </div>
+                
+                <div class="minmax-section">
+                    <div class="minmax-item">
+                        <i class="fas fa-arrow-down"></i>
+                        <span>Мин: <strong id="minValue">—</strong></span>
+                    </div>
+                    <div class="minmax-item">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>Макс: <strong id="maxValue">—</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Сохранения -->
+        <div class="tab-content" id="savedTab">
+            <div class="login-box saved-box">
+                <div class="saved-header">
+                    <h2>
+                        <i class="fas fa-folder-open"></i>
+                        Сохранения
+                    </h2>
+                    <div class="saved-actions">
+                        <button class="action-btn" id="exportBtn" title="Выгрузить всё">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="action-btn" id="clearAllBtn" title="Удалить всё">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="saved-list" id="savedList">
+                    <div class="empty-state">
+                        <i class="fas fa-inbox"></i>
+                        <p>Нет сохранений</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Уведомление -->
+        <div class="notification" id="notification"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
